@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prompt Engine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo">PE</div>
+        <div>
+          <h1>Prompt Engine</h1>
+          <p class="tag">Expand one-liners into professional, production-ready prompts</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#examples">Examples</a>
+        <a href="#templates">Templates</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container wrap-grid">
+    <aside class="panel">
+      <label class="field">Basic prompt
+        <input id="basicPrompt" placeholder="e.g. a serene mountain lake at sunset" />
+      </label>
+
+      <div class="row">
+        <label class="field">Category
+          <select id="category">
+            <option value="image">Image generation</option>
+            <option value="brochure">Brochure / Marketing Page</option>
+            <option value="webpage">Webpage (single page)</option>
+          </select>
+        </label>
+
+        <label class="field">Detail
+          <select id="detailLevel">
+            <option value="concise">Concise</option>
+            <option value="detailed" selected>Detailed</option>
+            <option value="very_detailed">Very detailed</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="checkbox"><input type="checkbox" id="includeNeg" /> Include negative prompt</label>
+
+      <div class="actions">
+        <button id="generate" class="primary">Generate Prompt</button>
+        <button id="example">Load Example</button>
+        <button id="saveFav" title="Save current prompt as favorite">Save Favorite</button>
+      </div>
+
+      <section id="favorites" class="templates favorites">
+        <h3>Favorites <button id="clearFavs" class="small">Clear</button></h3>
+        <div id="favoritesList" class="preset-list"></div>
+      </section>
+
+      <section id="templates" class="templates">
+        <h3>Presets</h3>
+        <div id="presetList" class="preset-list"></div>
+      </section>
+    </aside>
+
+    <section class="workspace">
+      <div class="preview">
+        <header class="preview-head">
+          <h2>Detailed Prompt</h2>
+          <div class="out-actions">
+            <button id="copyBtn">Copy</button>
+            <button id="downloadBtn">Download</button>
+          </div>
+        </header>
+
+        <pre id="detailedPrompt" class="output-box" spellcheck="false"></pre>
+      </div>
+
+      <section id="examples" class="examples">
+        <h3>Quick Examples</h3>
+        <div class="example-list">
+          <button class="example-btn">Product brochure for a coffee brand</button>
+          <button class="example-btn">Hero image: futuristic electric motorcycle</button>
+          <button class="example-btn">Landing page for a SaaS startup</button>
+        </div>
+      </section>
+
+      <section id="history" class="history">
+        <h3>History <button id="clearHistory" class="small">Clear</button></h3>
+        <div class="history-controls">
+          <input id="histSearch" placeholder="Search history (prompt text, category)..." />
+          <div class="date-row">
+            <input type="date" id="histFrom" title="From date" />
+            <input type="date" id="histTo" title="To date" />
+            <button id="histFilter" class="small">Filter</button>
+            <button id="histReset" class="small">Reset</button>
+          </div>
+        </div>
+        <div id="historyList" class="preset-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Built for rapid prompt authoring — export or copy to clipboard.</div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
